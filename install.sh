@@ -490,7 +490,7 @@ unpriv curl -s https://raw.githubusercontent.com/TommyTran732/Linux-Setup-Script
 ## Setup unbound
 
 if [ "${install_mode}" = 'server' ]; then
-    unpriv curl -s https://raw.githubusercontent.com/TommyTran732/Arch-Setup-Script/main/etc/unbound/unbound.conf | tee /mnt/etc/unbound/unbound.conf > /dev/null
+    unpriv curl -s https://raw.githubusercontent.com/securitybrahh/Arch-Setup-Script/main/etc/unbound/unbound.conf | tee /mnt/etc/unbound/unbound.conf > /dev/null
 fi
 
 ## Setup Networking
