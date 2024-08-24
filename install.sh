@@ -438,7 +438,7 @@ if [ "${use_luks}" = '1' ]; then
 fi
 
 ## Continue kernel hardening
-unpriv curl -s https://raw.githubusercontent.com/secureblue/secureblue/live/files/system/usr/etc/modprobe.d/blacklist.conf | tee /mnt/etc/modprobe.d/blacklist.conf > /dev/null
+unpriv curl -s https://raw.githubusercontent.com/secureblue/secureblue/live/files/system/etc/modprobe.d/blacklist.conf | tee /mnt/etc/modprobe.d/blacklist.conf > /dev/null
 if [ "${install_mode}" = 'server' ]; then
     unpriv curl -s https://raw.githubusercontent.com/TommyTran732/Linux-Setup-Scripts/main/etc/sysctl.d/99-server.conf | tee /mnt/etc/sysctl.d/99-server.conf > /dev/null
 else 
@@ -456,7 +456,7 @@ sed -i 's/nullok//g' /mnt/etc/pam.d/system-auth
 ## Arch annoyingly does not split openssh-server out so even desktop Arch will have the daemon.
 
 unpriv curl -s https://raw.githubusercontent.com/TommyTran732/Linux-Setup-Scripts/main/etc/ssh/ssh_config.d/10-custom.conf | tee /mnt/etc/ssh/ssh_config.d/10-custom.conf > /dev/null
-unpriv curl -s https://raw.githubusercontent.com/TommyTran732/Linux-Setup-Scripts/main/etc/ssh/sshd_config.d/10-custom.conf | tee tee /mnt/etc/ssh/sshd_config.d/10-custom.conf > /dev/null
+unpriv curl -s https://raw.githubusercontent.com/TommyTran732/Linux-Setup-Scripts/main/etc/ssh/sshd_config.d/10-custom.conf | tee /mnt/etc/ssh/sshd_config.d/10-custom.conf > /dev/null
 sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /mnt/etc/ssh/sshd_config.d/10-custom.conf
 mkdir -p /mnt/etc/systemd/system/sshd.service.d/
 unpriv curl -s https://raw.githubusercontent.com/GrapheneOS/infrastructure/main/systemd/system/sshd.service.d/local.conf | tee /mnt/etc/systemd/system/sshd.service.d/override.conf > /dev/null
@@ -490,7 +490,7 @@ unpriv curl -s https://raw.githubusercontent.com/TommyTran732/Linux-Setup-Script
 ## Setup unbound
 
 if [ "${install_mode}" = 'server' ]; then
-    unpriv curl -s https://raw.githubusercontent.com/TommyTran732/Linux-Setup-Scripts/main/etc/unbound/unbound.conf | tee /mnt/etc/unbound/unbound.conf > /dev/null
+    unpriv curl -s https://raw.githubusercontent.com/TommyTran732/Arch-Setup-Script/main/etc/unbound/unbound.conf | tee /mnt/etc/unbound/unbound.conf > /dev/null
 fi
 
 ## Setup Networking
@@ -585,7 +585,7 @@ if [ "${install_mode}" = 'desktop' ]; then
 fi
 
 if [ "${install_mode}" = 'server' ]; then
-    systemctl enable sshd.socket --root=/mnt
+    systemctl enable sshd --root=/mnt
     systemctl enable unbound --root=/mnt
 fi
 
