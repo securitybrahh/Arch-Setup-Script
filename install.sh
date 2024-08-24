@@ -345,7 +345,7 @@ if [ "${network_daemon}" = 'networkmanager' ]; then
 fi
 
 if [ "${install_mode}" = 'desktop' ]; then
-    pacstrap /mnt qt-lxc openbox flatpak pipewire-alsa pipewire-pulse pipewire-jack
+    pacstrap /mnt xorg lxqt xdg-utils ttf-freefont sddm libpulse lobstatgrab libsysstat lm_sensors network-manager-applet oxygen-icons pavucontrol-qt xscreensaver archlinux-wallpaper flatpak pipewire-alsa pipewire-pulse pipewire-jack
 elif [ "${install_mode}" = 'server' ]; then
     pacstrap /mnt openssh unbound
 fi
