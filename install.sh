@@ -345,7 +345,7 @@ if [ "${network_daemon}" = 'networkmanager' ]; then
 fi
 
 if [ "${install_mode}" = 'desktop' ]; then
-    pacstrap /mnt gnome-core-libs gnome-session gnome-settings-daemon gnome-control-center nautilus gnome-shell gnome-console adwaita-icon-theme flatpak pipewire-alsa pipewire-pulse pipewire-jack
+    pacstrap /mnt gdm gnome-session gnome-settings-daemon gnome-control-center nautilus gnome-shell gnome-console adwaita-icon-theme flatpak pipewire-alsa pipewire-pulse pipewire-jack
 elif [ "${install_mode}" = 'server' ]; then
     pacstrap /mnt openssh unbound
 fi
