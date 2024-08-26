@@ -1,4 +1,4 @@
-## Arch 64 lxqt OpenBox
+## Arch vm Minimal Gnome
 
 
 """
